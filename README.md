@@ -89,102 +89,102 @@ obj.display()
 ### Result: Thus, the given program is implemented and executed successfully .
 
 ### EX: 9.3 ADVANCED LIST PROCESSING
-### Aim: To Write a Python program to Find the transpose of a matrix using list Comprehension.
+### Aim: To Write a Python program to add two matrices using list Comprehension.
 
 ### Algorithm:
 
-STEP 1: Start.
-
-STEP 2: Create a variable r and c for rows and columns. 
-
-STEP 3: Get the value of r and c from user.
-
-STEP 4: Define a function to create the matrix.
-
-STEP 5 : Using list comprehension find the transpose of the matrix.
-
-STEP 6: Print the result.
-
-STEP 7 : Stop.
+STEP 1:Initialize Matrices: Define two 2D lists (matrix1 and matrix2) of the same dimensions.
+STEP2:List Comprehension:
+         Outer list comprehension iterates over the rows using i.
+         Inner list comprehension iterates over the columns using j.
+         For each element position [i][j], sum the corresponding elements from both                    matrices:matrix1[i][j] + matrix2[i][j].
+STEP 3: Store the resulting sums in a new matrix (result) of the same dimensions.
 
 ### Program:
 ```
-def create(r,c):
-            M=[]
-        for i in range(int(r)):
-             R = []
-        for j in range(int(c)):
-             x = int(input())
-             R.append(x)
-           M.append(R)
- return M
-r,c = input().split()
-matrix = create(int(r),int(c))
-print(matrix)
-T = [[r[i]for r in matrix]for i in range(len(matrix[0]))]
- print(T)
+def create_matrix(n,m):
+    M=[]
+    for i in range(n):
+        row=[]
+        for j in range(m):
+            x=int(input())
+            row.append(x)
+        M.append(row)
+    return M 
+    
+r,c=input().split()
+r=int(r)
+c=int(c)
+A=create_matrix(r,c)
+B=create_matrix(r,c)
+print(A)
+print(B)
+T = [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
+print(T)
+
 ```
 ### Output:
-![image](https://github.com/user-attachments/assets/411a227a-f44d-4b1a-b489-c7592dddbb67)
+
+![9a](https://github.com/user-attachments/assets/a9b9ba8f-c420-4a19-8ee0-81e144c8b00a)
 
 ### Result: Thus, the given program is implemented and executed successfully .
  
 
 
 ### EX: 9.4       TOEPLITZ MATRIX
-### Aim: To Write a Python Program to check whether the given matrix is Toeplitz Matrix.
+### Aim: To Write a Python Program to to search an element in a 2D array.
 
 
 ### Algorithm:
 STEP 1: Start.
-
-STEP 2: Create a variable r and c for rows and columns.
-
-STEP 3: Get the value of r and c from user.
-
-STEP 4: Define a function to create the matrix.
-
-STEP 5 : Using the formula check for TOEPLITZ MATRIX .
-
-STEP 6: Print the result.
-
-STEP 7 : Stop.
+STEP 2:Define a 2D array (matrix) and an integer target to search for.
+STEP 3:Initialize a boolean variable found to False.
+STEP 4:Use a nested loop:
+         Outer loop iterates through rows (i).
+         Inner loop iterates through columns (j).
+STEP 5:For each element matrix[i][j]:
+         If it matches target, print the position (i, j) and set found = True.
+         Exit the loops using break.
+STEP 6:After the loop, if found is still False, print that the element is not found.
+STEP 7:End
 
 
 ### Program:
 ```
 def create_matrix(n,m):
-        M=[]
-        for i in range(n):
-                row=[]
+    M=[]
+    for i in range(n):
+        row=[]
         for j in range(m):
             x=int(input())
             row.append(x)
         M.append(row)
-      return M
-def print_matrix(M):
+    return M
+def printmatrix(M):
     for i in range(len(M)):
-         for j in range(len(M[0])):
-               print(M[i][j], end=' ')
-     print()
-def isThoeplitz(M):
-#Type your code here
-for i in range(len(M)):
-      for j in range(len(M[0])):
-             if i>0 and j>0 and M[i][j]!=M[i-1][j-1]:
-                return False
-       return True
-n,m = input().split()
-A = create_matrix(int(n),int(m))
-print("A=",A)
-if isThoeplitz(A):
-      print(A,"is a Toeplitz Matrix")
- else:
-       print(A,"is not a Toeplitz Matrix") print_matrix(A)
+        for j in range(len(M[0])):
+            print(M[i][j],end=' ')
+        print()
+def search(M,x):
+    flag=False
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            if x==M[i][j]:
+                print('Element is found in (',i,',',j,')')
+                flag=True
+    return flag
+r,c=input().split()
+A=create_matrix(int(r),int(c))
+x=int(input())
+printmatrix(A)
+print('search element is ',x)
+if (not search(A,x)):
+    print('Element is not found in the Matrix')
 ```
 ### Output:
 
-![image](https://github.com/user-attachments/assets/0fb8f81b-ab07-4b3e-b273-035a0f38566d)
+
+![9B](https://github.com/user-attachments/assets/0c3e2e0e-e528-4190-986e-a5d952dbad4d)
 
 ### Result: Thus, the given program is implemented and executed successfully.
  
